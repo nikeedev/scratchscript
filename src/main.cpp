@@ -3,10 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include <fmt/core.h>
+#include "lexer/lexer.h"
 
 int main(int argc, char** argv)
 {
-    if (argc < 1) {
+    if (argc <= 1) {
         fmt::println("No file provided");
         exit(1);
     }

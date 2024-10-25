@@ -37,12 +37,18 @@ enum TokenType {
     Else,
     For,
     Say,
-    Return,
+    Get,
+    Set,
+    While
 };
+
+
 
 class Token {
 public:
     TokenType type;
     std::string value;
     int line, column;
+
+    bool is_terminated = true;
 };
