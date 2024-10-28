@@ -9,33 +9,18 @@ public:
     int current = 0;
     int line = 1;
     int column = 1;
+    bool is_terminated = true;
 
     void lex(std::string _source);
 
     TokenType id();
+    TokenType str();
+    TokenType comment();
+    TokenType number();
 
     std::vector<Token> get_tokens() { return tokens; }
 
-    char peek()
-    {
-        return src[current + 1];
-    }
-
-    char bump()
-    {
-        if (src[current] != NULL)
-        {
-            current++;
-            return src[current];
-        }
-        else
-        {
-            return '\0';
-        }
-    }
-
-    bool is_id(char c) 
-    {
-        return std::isalpha(c) || std::isdigit(c) || c == '_';
-    }
+    char bump();
+    char peek();
+    bool is_id(char c);
 };

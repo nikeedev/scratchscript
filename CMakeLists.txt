@@ -7,7 +7,11 @@ project(scratchscript)
 find_package(fmt CONFIG REQUIRED)
 find_package(raylib CONFIG REQUIRED)
 
-add_executable(scratchscript src/main.cpp src/lexer/lexer.cpp)
+add_executable(scratchscript 
+    src/main.cpp 
+    src/lexer/lexer.cpp
+    src/lexer/token.cpp    
+)
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/Debug/assets)
 

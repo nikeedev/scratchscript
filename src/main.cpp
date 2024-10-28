@@ -24,8 +24,15 @@ int main(int argc, char** argv)
     std::string code((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
     file.close();
 
-    std::cout << code << std::endl;
+    Lexer lexer;
+    lexer.lex(code);
+    std::vector<Token> tokens = lexer.get_tokens();
 
+    for (Token token : tokens) {
+        std::cout << "type: " << token.type << " value: \"" << token.value << "\" at " << token.line << ":" << token.column << std::endl;
+    }
+
+    /*
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(800, 600, "scratch_cpp project - basic window");
 
@@ -57,6 +64,7 @@ int main(int argc, char** argv)
 
     UnloadFont(roboto_font);
     CloseWindow();
+    */
 
     return 0;
 }

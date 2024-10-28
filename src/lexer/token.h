@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 enum TokenType {
     Comment, // #
@@ -6,7 +7,7 @@ enum TokenType {
     Number, // 0-9
     String, // "string"
     Keyword,
-    Punctuation,
+    Dot, // .
     Whitespace, // space, tab, new line
     EndOF,
     Plus, // + 
@@ -18,6 +19,7 @@ enum TokenType {
     Ampersand, // &
     Tilde, // ~
     Equal, // =
+    IsSame, // ==
     NotEqual, // !=
     LessThan, // <
     GreaterThan, // >
@@ -39,16 +41,20 @@ enum TokenType {
     Say,
     Get,
     Set,
-    While
+    While,
+    Unknown
 };
 
+// Text formatting to print the token types:
 
+std::ostream& operator<<(std::ostream& os, TokenType type);
 
 class Token {
 public:
     TokenType type;
     std::string value;
-    int line, column;
+    int line; 
+    int column;
 
     bool is_terminated = true;
 };

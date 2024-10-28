@@ -1,0 +1,7 @@
+{
+    "cmake.debugConfig": {
+        "args": [
+            "D:/scratchscript/example.ss"
+        ]
+    }
+}
